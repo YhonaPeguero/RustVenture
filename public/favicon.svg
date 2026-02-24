@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bodyGrad" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </radialGradient>
+    <linearGradient id="solanaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9945ff"/>
+      <stop offset="100%" stop-color="#14f195"/>
+    </linearGradient>
+    <linearGradient id="goggleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7e22ce"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <rect width="64" height="64" rx="14" fill="#0f0f1a"/>
+
+  <!-- Legs - left -->
+  <rect x="7" y="33" width="10" height="3.5" rx="1.5" fill="#ea580c" transform="rotate(-20 12 34.5)"/>
+  <rect x="6" y="40" width="10" height="3.5" rx="1.5" fill="#ea580c" transform="rotate(-8 11 41.5)"/>
+
+  <!-- Legs - right -->
+  <rect x="47" y="33" width="10" height="3.5" rx="1.5" fill="#ea580c" transform="rotate(20 52 34.5)"/>
+  <rect x="48" y="40" width="10" height="3.5" rx="1.5" fill="#ea580c" transform="rotate(8 53 41.5)"/>
+
+  <!-- Left claw arm -->
+  <rect x="10" y="26" width="12" height="5" rx="2.5" fill="#ea580c" transform="rotate(-30 16 28)"/>
+  <!-- Left claw -->
+  <ellipse cx="9" cy="21" rx="5.5" ry="4.5" fill="#c2410c"/>
+  <ellipse cx="11.5" cy="18.5" rx="3" ry="2.5" fill="#ea580c"/>
+  <!-- Solana badge on left claw -->
+  <rect x="5.5" y="18" width="7" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+  <rect x="6.5" y="20.5" width="5.5" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+  <rect x="5.5" y="23" width="7" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+
+  <!-- Right claw arm -->
+  <rect x="42" y="26" width="12" height="5" rx="2.5" fill="#ea580c" transform="rotate(30 48 28)"/>
+  <!-- Right claw -->
+  <ellipse cx="55" cy="21" rx="5.5" ry="4.5" fill="#c2410c"/>
+  <ellipse cx="52.5" cy="18.5" rx="3" ry="2.5" fill="#ea580c"/>
+  <!-- Solana badge on right claw -->
+  <rect x="51.5" y="18" width="7" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+  <rect x="52" y="20.5" width="5.5" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+  <rect x="51.5" y="23" width="7" height="1.5" rx="0.75" fill="url(#solanaGrad)"/>
+
+  <!-- Body -->
+  <ellipse cx="32" cy="37" rx="16" ry="12" fill="url(#bodyGrad)"/>
+
+  <!-- Shell highlight -->
+  <ellipse cx="32" cy="34" rx="10" ry="6" fill="#fb923c" opacity="0.4"/>
+
+  <!-- Eyes -->
+  <circle cx="25" cy="29" r="4" fill="white"/>
+  <circle cx="39" cy="29" r="4" fill="white"/>
+  <circle cx="25.5" cy="29" r="2.2" fill="#1e1b4b"/>
+  <circle cx="39.5" cy="29" r="2.2" fill="#1e1b4b"/>
+  <circle cx="26" cy="28" r="0.8" fill="white" opacity="0.8"/>
+  <circle cx="40" cy="28" r="0.8" fill="white" opacity="0.8"/>
+
+  <!-- Explorer goggles strap -->
+  <rect x="20" y="24.5" width="24" height="4" rx="2" fill="url(#goggleGrad)" opacity="0.85"/>
+  <!-- Goggle lenses -->
+  <rect x="21" y="22" width="9" height="7" rx="3.5" fill="#0c0a1f" stroke="url(#goggleGrad)" stroke-width="1.5"/>
+  <rect x="34" y="22" width="9" height="7" rx="3.5" fill="#0c0a1f" stroke="url(#goggleGrad)" stroke-width="1.5"/>
+  <!-- Goggle lens shimmer -->
+  <ellipse cx="24" cy="24" rx="1.8" ry="1.2" fill="#a78bfa" opacity="0.5"/>
+  <ellipse cx="37" cy="24" rx="1.8" ry="1.2" fill="#a78bfa" opacity="0.5"/>
+
+  <!-- Antenna left -->
+  <line x1="25" y1="22" x2="21" y2="15" stroke="#f97316" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="21" cy="14" r="2" fill="#9945ff"/>
+
+  <!-- Antenna right -->
+  <line x1="39" y1="22" x2="43" y2="15" stroke="#f97316" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="43" cy="14" r="2" fill="#14f195"/>
+</svg>

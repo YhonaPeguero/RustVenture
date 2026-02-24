@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 118" width="290" height="118">
+  <defs>
+    <radialGradient id="bodyGrad" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </radialGradient>
+    <linearGradient id="solanaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9945ff"/>
+      <stop offset="100%" stop-color="#14f195"/>
+    </linearGradient>
+    <linearGradient id="goggleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7e22ce"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="ventureGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9945ff"/>
+      <stop offset="100%" stop-color="#14f195"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── CRAB ── -->
+  <!-- Legs left -->
+  <rect x="10" y="60" width="13" height="3.5" rx="1.75" fill="#ea580c" transform="rotate(-22 16 61.75)"/>
+  <rect x="8"  y="70" width="13" height="3.5" rx="1.75" fill="#ea580c" transform="rotate(-8  14 71.75)"/>
+  <!-- Legs right -->
+  <rect x="70" y="60" width="13" height="3.5" rx="1.75" fill="#ea580c" transform="rotate(22 76 61.75)"/>
+  <rect x="72" y="70" width="13" height="3.5" rx="1.75" fill="#ea580c" transform="rotate(8  78 71.75)"/>
+
+  <!-- Left claw arm -->
+  <rect x="13" y="50" width="15" height="5.5" rx="2.75" fill="#ea580c" transform="rotate(-30 20 52.75)"/>
+  <!-- Left claw -->
+  <ellipse cx="11" cy="41" rx="7" ry="5.5" fill="#c2410c"/>
+  <ellipse cx="14" cy="37" rx="3.8" ry="3.2" fill="#ea580c"/>
+  <!-- Solana stripes left claw -->
+  <rect x="6.5" y="37" width="9" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+  <rect x="7.5" y="40" width="7.5" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+  <rect x="6.5" y="43" width="9" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+
+  <!-- Right claw arm -->
+  <rect x="65" y="50" width="15" height="5.5" rx="2.75" fill="#ea580c" transform="rotate(30 72 52.75)"/>
+  <!-- Right claw -->
+  <ellipse cx="82" cy="41" rx="7" ry="5.5" fill="#c2410c"/>
+  <ellipse cx="79" cy="37" rx="3.8" ry="3.2" fill="#ea580c"/>
+  <!-- Solana stripes right claw -->
+  <rect x="77.5" y="37" width="9" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+  <rect x="78" y="40" width="7.5" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+  <rect x="77.5" y="43" width="9" height="1.8" rx="0.9" fill="url(#solanaGrad)"/>
+
+  <!-- Body -->
+  <ellipse cx="47" cy="71" rx="22" ry="16" fill="url(#bodyGrad)"/>
+  <ellipse cx="47" cy="67" rx="13" ry="8.5" fill="#fb923c" opacity="0.35"/>
+
+  <!-- Eyes -->
+  <circle cx="39" cy="59" r="5.5" fill="white"/>
+  <circle cx="55" cy="59" r="5.5" fill="white"/>
+  <circle cx="39.5" cy="59" r="3" fill="#1e1b4b"/>
+  <circle cx="55.5" cy="59" r="3" fill="#1e1b4b"/>
+  <circle cx="40" cy="57.5" r="1.1" fill="white" opacity="0.85"/>
+  <circle cx="56" cy="57.5" r="1.1" fill="white" opacity="0.85"/>
+
+  <!-- Goggles strap -->
+  <rect x="32" y="52.5" width="30" height="5" rx="2.5" fill="url(#goggleGrad)" opacity="0.9"/>
+  <!-- Left goggle lens -->
+  <rect x="32" y="48" width="13" height="10" rx="5" fill="#0c0a1f" stroke="url(#goggleGrad)" stroke-width="1.8"/>
+  <!-- Right goggle lens -->
+  <rect x="49" y="48" width="13" height="10" rx="5" fill="#0c0a1f" stroke="url(#goggleGrad)" stroke-width="1.8"/>
+  <!-- Shimmer -->
+  <ellipse cx="36.5" cy="51" rx="2.5" ry="1.7" fill="#a78bfa" opacity="0.5"/>
+  <ellipse cx="53.5" cy="51" rx="2.5" ry="1.7" fill="#a78bfa" opacity="0.5"/>
+
+  <!-- Antennae -->
+  <line x1="39" y1="48" x2="33" y2="37" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="32.5" cy="35.5" r="2.8" fill="#9945ff"/>
+  <line x1="55" y1="48" x2="61" y2="37" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="61.5" cy="35.5" r="2.8" fill="#14f195"/>
+
+  <!-- ── WORDMARK ── -->
+  <!-- "Rust" in orange, "Venture" in Solana gradient -->
+  <!-- Using tspan in one <text> element to avoid gap/duplicate glyph issues -->
+  <text
+    x="105" y="64"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="31"
+    letter-spacing="-0.5"
+  >
+    <tspan fill="#f97316">Rust</tspan><tspan fill="url(#ventureGrad)">Venture</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="105" y="86"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="9" font-weight="600" fill="#64748b" letter-spacing="1.8">EXPLORA · APRENDE</text>
+
+  <!-- Solana accent line -->
+  <rect x="105" y="91" width="130" height="2" rx="1" fill="url(#solanaGrad)" opacity="0.55"/>
+</svg>
