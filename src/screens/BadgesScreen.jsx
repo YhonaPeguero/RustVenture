@@ -44,7 +44,7 @@ export const BadgesScreen = () => {
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-2 gap-3 sm:gap-4"
             >
                 {BADGES.map(badge => {
                     const isUnlocked = state.unlockedBadges.includes(badge.id);
@@ -53,16 +53,16 @@ export const BadgesScreen = () => {
                           key={badge.id}
                           variants={item}
                           whileHover={isUnlocked ? { y: -5, scale: 1.02 } : {}}
-                          className={`relative p-8 rounded-[2.5rem] border-2 flex flex-col items-center text-center transition-all duration-500 overflow-hidden
+                          className={`relative p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2.5rem] border-2 flex flex-col items-center text-center transition-all duration-500 overflow-hidden
                             ${isUnlocked 
                                 ? 'bg-[#13131a] border-[#f97316]/30 shadow-[0_20px_40px_rgba(249,115,22,0.1)]' 
                                 : 'bg-[#0a0a0f] border-white/5 opacity-40 grayscale group'}`}
                         >
                             {isUnlocked && (
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-[#f97316]/5 blur-[30px] rounded-full" />
+                                <div className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-[#f97316]/5 blur-[30px] rounded-full" />
                             )}
                             
-                            <div className={`relative mb-6 transform transition-transform duration-500 ${isUnlocked ? 'group-hover:scale-110' : ''}`}>
+                            <div className={`relative mb-4 sm:mb-6 transform transition-transform duration-500 ${isUnlocked ? 'group-hover:scale-110' : ''}`}>
                                 {isUnlocked && (
                                     <motion.div 
                                         animate={{ rotate: 360 }}
@@ -70,27 +70,27 @@ export const BadgesScreen = () => {
                                         className="absolute inset-0 bg-gradient-to-r from-[#f97316]/20 to-transparent rounded-full blur-xl scale-150" 
                                     />
                                 )}
-                                <span className={`text-6xl relative z-10 block ${!isUnlocked ? 'opacity-20' : ''}`}>
+                                <span className={`text-4xl sm:text-6xl relative z-10 block ${!isUnlocked ? 'opacity-20' : ''}`}>
                                     {isUnlocked ? badge.icon : '❓'}
                                 </span>
                             </div>
 
-                            <h3 className={`text-sm font-black mb-2 uppercase tracking-widest relative z-10 ${isUnlocked ? 'text-white' : 'text-slate-600'}`}>
+                            <h3 className={`text-[10px] sm:text-sm font-black mb-1 sm:mb-2 uppercase tracking-widest relative z-10 ${isUnlocked ? 'text-white' : 'text-slate-600'}`}>
                                 {isUnlocked ? badge.name : 'Bloqueado'}
                             </h3>
-                            <p className="text-[10px] text-slate-500 font-medium leading-relaxed mb-4 relative z-10">
-                                {isUnlocked ? badge.description : 'Sigue aprendiendo para revelar este secreto.'}
+                            <p className="text-[8px] sm:text-[10px] text-slate-500 font-medium leading-relaxed mb-3 sm:mb-4 relative z-10 line-clamp-2">
+                                {isUnlocked ? badge.description : 'Sigue aprendiendo.'}
                             </p>
 
                             {!isUnlocked && (
-                                <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full border border-white/5">
-                                    <Lock size={10} className="text-slate-700" />
-                                    <span className="text-[8px] font-black text-slate-700 uppercase tracking-widest">Locked</span>
+                                <div className="flex items-center gap-1 px-2 py-0.5 bg-white/5 rounded-full border border-white/5">
+                                    <Lock size={8} className="text-slate-700" />
+                                    <span className="text-[7px] font-black text-slate-700 uppercase tracking-widest">Locked</span>
                                 </div>
                             )}
 
                             {isUnlocked && (
-                                <Sparkles size={12} className="text-[#f97316] opacity-30 absolute top-4 left-4" />
+                                <Sparkles size={10} className="text-[#f97316] opacity-30 absolute top-3 left-3" />
                             )}
                         </motion.div>
                     );

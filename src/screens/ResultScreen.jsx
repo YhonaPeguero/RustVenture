@@ -79,47 +79,47 @@ export const ResultScreen = () => {
                 </div>
             </motion.div>
 
-            <motion.div variants={card} className="space-y-2 mb-12">
-                <h2 className="text-5xl font-black text-white tracking-tight">¡RETO SUPERADO!</h2>
-                <div className="flex items-center justify-center gap-2 text-[#94a3b8] font-bold tracking-[0.2em] text-xs uppercase">
-                    <Star size={14} className="text-yellow-500" />
+            <motion.div variants={card} className="space-y-1 sm:space-y-2 mb-8 sm:mb-12">
+                <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight px-4">¡RETO SUPERADO!</h2>
+                <div className="flex items-center justify-center gap-2 text-[#94a3b8] font-bold tracking-[0.2em] text-[10px] sm:text-xs uppercase">
+                    <Star size={12} className="text-yellow-500 sm:w-3.5 sm:h-3.5" />
                     <span>Nivel {state.level} • Desafío {state.challengeIndex + 1}</span>
-                    <Star size={14} className="text-yellow-500" />
+                    <Star size={12} className="text-yellow-500 sm:w-3.5 sm:h-3.5" />
                 </div>
             </motion.div>
 
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                <motion.div variants={card} className="bg-[#13131a] p-8 rounded-[2.5rem] border border-white/5 relative overflow-hidden group">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12">
+                <motion.div variants={card} className="bg-[#13131a] p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-20 h-20 bg-green-500/5 blur-[30px] rounded-full" />
-                    <Zap className={`mb-2 opacity-50 ${result?.alreadyCompleted ? 'text-slate-500' : 'text-green-500'}`} size={20} />
-                    <p className="text-[10px] font-black text-[#94a3b8] uppercase tracking-[0.2em] mb-1">XP ACUMULADA</p>
-                    <p className={`text-4xl font-black ${result?.alreadyCompleted ? 'text-slate-500' : 'text-green-500'}`}>
+                    <Zap className={`mb-2 opacity-50 ${result?.alreadyCompleted ? 'text-slate-500' : 'text-green-500'}`} size={18} />
+                    <p className="text-[9px] sm:text-[10px] font-black text-[#94a3b8] uppercase tracking-[0.2em] mb-1">XP ACUMULADA</p>
+                    <p className={`text-3xl sm:text-4xl font-black ${result?.alreadyCompleted ? 'text-slate-500' : 'text-green-500'}`}>
                         +{result?.xpGained}
                     </p>
                     {result?.alreadyCompleted ? (
-                        <div className="mt-3 inline-block px-3 py-1 bg-slate-700/30 rounded-full border border-slate-600/30">
-                            <span className="text-[10px] text-slate-400 font-black uppercase">Ya completado ✓</span>
+                        <div className="mt-2 inline-block px-3 py-1 bg-slate-700/30 rounded-full border border-slate-600/30">
+                            <span className="text-[9px] text-slate-400 font-black uppercase">Ya completado ✓</span>
                         </div>
                     ) : result?.bonus && (
-                        <div className="mt-3 inline-block px-3 py-1 bg-[#f97316]/10 rounded-full border border-[#f97316]/20">
-                            <span className="text-[10px] text-[#f97316] font-black uppercase">PERFECTO 🔥</span>
+                        <div className="mt-2 inline-block px-3 py-1 bg-[#f97316]/10 rounded-full border border-[#f97316]/20">
+                            <span className="text-[9px] text-[#f97316] font-black uppercase">PERFECTO 🔥</span>
                         </div>
                     )}
                 </motion.div>
 
-                <motion.div variants={card} className="bg-[#13131a] p-8 rounded-[2.5rem] border border-white/5 relative overflow-hidden group">
+                <motion.div variants={card} className="bg-[#13131a] p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-20 h-20 bg-[#a855f7]/5 blur-[30px] rounded-full" />
-                    <Star className="text-[#a855f7] mb-2 opacity-50" size={20} />
-                    <p className="text-[10px] font-black text-[#94a3b8] uppercase tracking-[0.2em] mb-1">RACHA ACTUAL</p>
-                    <p className="text-4xl font-black text-[#a855f7]">{state.streak}</p>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase mt-2">RETOS SEGUIDOS</p>
+                    <Star className="text-[#a855f7] mb-2 opacity-50" size={18} />
+                    <p className="text-[9px] sm:text-[10px] font-black text-[#94a3b8] uppercase tracking-[0.2em] mb-1">RACHA ACTUAL</p>
+                    <p className="text-3xl sm:text-4xl font-black text-[#a855f7]">{state.streak}</p>
+                    <p className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase mt-1">RETOS SEGUIDOS</p>
                 </motion.div>
             </div>
 
             {result?.newBadges.length > 0 && (
-                <motion.div variants={card} className="w-full mb-12">
-                    <p className="text-[10px] font-black text-[#f97316] uppercase mb-6 tracking-[0.3em]">NUEVAS INSIGNIAS</p>
-                    <div className="flex justify-center gap-6">
+                <motion.div variants={card} className="w-full mb-8 sm:mb-12">
+                    <p className="text-[9px] sm:text-[10px] font-black text-[#f97316] uppercase mb-4 sm:mb-6 tracking-[0.3em]">NUEVAS INSIGNIAS</p>
+                    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
                         {result.newBadges.map((id, i) => {
                             const badge = BADGES.find(b => b.id === id);
                             return (
@@ -131,10 +131,10 @@ export const ResultScreen = () => {
                                     className="relative group"
                                 >
                                     <div className="absolute inset-0 bg-[#f97316]/20 blur-[20px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <div className="w-20 h-20 bg-[#1e1e2e] rounded-3xl flex items-center justify-center text-4xl shadow-2xl border-2 border-white/5 group-hover:border-[#f97316]/50 transition-all relative z-10">
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#1e1e2e] rounded-2xl sm:rounded-3xl flex items-center justify-center text-3xl sm:text-4xl shadow-2xl border border-white/5 group-hover:border-[#f97316]/50 transition-all relative z-10">
                                         {badge.icon}
                                     </div>
-                                    <p className="mt-3 text-[10px] font-black text-white uppercase tracking-widest">{badge.name}</p>
+                                    <p className="mt-2 text-[8px] sm:text-[10px] font-black text-white uppercase tracking-widest">{badge.name}</p>
                                 </motion.div>
                             );
                         })}

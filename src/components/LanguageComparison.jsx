@@ -4,15 +4,29 @@ import { CodeBlock } from './Shared';
 import { X } from 'lucide-react';
 
 export const LanguageComparison = ({ prevLang, category, isOpen, onClose }) => {
-    const data = INITIAL_LANGUAGE_COMPARISONS[prevLang][category];
     if (!isOpen) return null;
+
+    const data = INITIAL_LANGUAGE_COMPARISONS[prevLang]?.[category];
+
+    if (!data) {
+        return (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                <div className="bg-[#13131a] border border-white/10 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl">
+                    <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🔍</div>
+                    <h3 className="text-xl font-bold text-white mb-2">Comparativa en camino</h3>
+                    <p className="text-slate-400 text-sm mb-6">Estamos preparando los ejemplos para este reto específico. ¡Vuelve pronto!</p>
+                    <button onClick={onClose} className="w-full py-3 bg-[#f97316] text-white font-bold rounded-xl">Entendido</button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
             <div className="bg-[#13131a] border border-[#1e1e2e] rounded-3xl p-5 sm:p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-6">
                     <h3 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-[#f97316] to-[#a855f7] bg-clip-text text-transparent">
-                        Comparativa: {prevLang.toUpperCase()} vs Rust
+                        {prevLang === 'none' ? 'Conceptos de Rust' : `Comparativa: ${prevLang.toUpperCase()} vs Rust`}
                     </h3>
                     <button onClick={onClose} className="p-2 text-[#94a3b8] hover:text-white transition-colors">
                         <X size={20} />

@@ -7,8 +7,8 @@ export const WelcomeScreen = () => {
     const [selected, setSelected] = useState('none');
 
     const langs = [
-        { id: 'js', name: 'JavaScript', icon: '🟨', color: 'from-[#f7df1e]/20 to-[#f7df1e]/5' },
-        { id: 'python', name: 'Python', icon: '🟦', color: 'from-[#3776ab]/20 to-[#3776ab]/5' },
+        { id: 'js', name: 'JavaScript', icon: '⚡', color: 'from-[#f7df1e]/20 to-[#f7df1e]/5' },
+        { id: 'python', name: 'Python', icon: '🐍', color: 'from-[#3776ab]/20 to-[#3776ab]/5' },
         { id: 'java', name: 'Java', icon: '☕', color: 'from-[#ed8b00]/20 to-[#ed8b00]/5' },
         { id: 'none', name: 'Ninguno', icon: '🥷', color: 'from-slate-500/20 to-slate-500/5' }
     ];

@@ -83,16 +83,16 @@ export const ChallengeScreen = () => {
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1 items-start"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 flex-1 items-start min-w-0"
             >
                 {/* Left Side: Question and Context */}
-                <div className="space-y-6">
-                    <div className="bg-[#13131a] p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden">
+                <div className="space-y-4 sm:space-y-6 min-w-0">
+                    <div className="bg-[#13131a] p-5 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#f97316]/5 blur-[40px] rounded-full" />
-                        <h2 className="text-xl sm:text-2xl font-black text-white leading-tight mb-4 relative z-10">
+                        <h2 className="text-lg sm:text-2xl font-black text-white leading-tight mb-4 relative z-10">
                             {challenge.question}
                         </h2>
-                        <div className="flex items-center gap-3 text-slate-400 text-xs sm:text-sm font-medium relative z-10">
+                        <div className="flex items-center gap-2 sm:gap-3 text-slate-400 text-[10px] sm:text-sm font-medium relative z-10">
                             <div className="p-1.5 sm:p-2 bg-white/5 rounded-lg">
                                 <BookOpen size={14} className="text-[#f97316]" />
                             </div>
@@ -103,11 +103,11 @@ export const ChallengeScreen = () => {
                     {(challenge.type === 'B') && (
                         <div className="bg-[#0a0a0f] rounded-3xl overflow-hidden border border-white/5 shadow-inner">
                             <div className="bg-white/5 px-4 sm:px-6 py-3 flex items-center justify-between border-b border-white/5">
-                                <span className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-[0.2em]">contract.rs</span>
+                                <span className="text-[9px] sm:text-[10px] font-bold text-[#94a3b8] uppercase tracking-[0.2em]">contract.rs</span>
                                 <div className="flex gap-1.5">
-                                    <div className="w-2 h-2 rounded-full bg-red-500/20" />
-                                    <div className="w-2 h-2 rounded-full bg-yellow-500/20" />
-                                    <div className="w-2 h-2 rounded-full bg-green-500/20" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-red-500/20" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-yellow-500/20" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500/20" />
                                 </div>
                             </div>
                             <CodeBlock code={challenge.code} />
@@ -115,23 +115,23 @@ export const ChallengeScreen = () => {
                     )}
 
                     {challenge.type === 'C' && (
-                        <div className="bg-[#13131a] p-5 sm:p-6 rounded-3xl border border-white/5">
-                            <p className="text-[10px] font-black text-[#f97316] uppercase tracking-[0.2em] mb-4">Depura el error:</p>
-                            <div className="space-y-1 font-mono text-xs sm:text-sm">
+                        <div className="bg-[#13131a] p-4 sm:p-6 rounded-3xl border border-white/5 overflow-hidden">
+                            <p className="text-[9px] sm:text-[10px] font-black text-[#f97316] uppercase tracking-[0.2em] mb-4">Depura el error:</p>
+                            <div className="space-y-1 font-mono text-[11px] sm:text-sm overflow-x-auto pb-2">
                                 {challenge.lines.map((line, i) => (
                                     <motion.button
                                       key={i}
                                       whileHover={{ scale: 1.01, backgroundColor: 'rgba(255,255,255,0.03)' }}
                                       onClick={() => setSelectedOption(i)}
-                                      className={`w-full group text-left flex items-center gap-4 py-2 px-3 sm:px-4 rounded-xl transition-all
+                                      className={`w-full group text-left flex items-center gap-3 py-2 px-3 sm:px-4 rounded-xl transition-all min-w-max
                                         ${selectedOption === i 
                                             ? 'bg-red-500/10 text-red-400 border border-red-500/30' 
                                             : 'text-slate-400 hover:text-white border border-transparent'}`}
                                     >
-                                        <span className={`text-[10px] font-bold w-4 text-right ${selectedOption === i ? 'text-red-400' : 'opacity-20'}`}>
+                                        <span className={`text-[10px] font-bold w-4 text-right flex-shrink-0 ${selectedOption === i ? 'text-red-400' : 'opacity-20'}`}>
                                             {i + 1}
                                         </span>
-                                        <span className="whitespace-pre overflow-x-hidden text-ellipsis">{line}</span>
+                                        <span className="whitespace-pre">{line}</span>
                                     </motion.button>
                                 ))}
                             </div>
@@ -140,60 +140,60 @@ export const ChallengeScreen = () => {
                 </div>
 
                 {/* Right Side: Options/Input */}
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                     {challenge.type === 'A' && (
-                        <div className="space-y-3">
-                            <p className="text-[10px] font-bold text-[#94a3b8] uppercase tracking-[0.2em] px-4">Selecciona una opción:</p>
+                        <div className="space-y-2 sm:space-y-3">
+                            <p className="text-[9px] sm:text-[10px] font-bold text-[#94a3b8] uppercase tracking-[0.2em] px-4 mb-2">Selecciona una opción:</p>
                             {challenge.options.map((opt, i) => (
                                 <motion.button
                                   key={i}
-                                  whileHover={{ x: 8 }}
+                                  whileHover={{ x: 4 }}
                                   whileTap={{ scale: 0.98 }}
                                   onClick={() => setSelectedOption(i)}
-                                  className={`w-full p-4 sm:p-6 min-h-[4rem] sm:h-20 rounded-[1.5rem] sm:rounded-3xl border text-left transition-all flex items-center gap-4
+                                  className={`w-full p-4 sm:p-6 min-h-[3.5rem] sm:h-20 rounded-2xl sm:rounded-3xl border text-left transition-all flex items-center gap-3 sm:gap-4
                                     ${selectedOption === i 
                                         ? 'border-[#f97316] bg-[#f97316]/10 text-white shadow-lg shadow-[#f97316]/5' 
                                         : 'border-white/5 bg-[#13131a] text-slate-300 hover:border-white/20'}`}
                                 >
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0
+                                    <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[10px] sm:text-xs flex-shrink-0
                                         ${selectedOption === i ? 'bg-[#f97316] text-white' : 'bg-white/5 text-slate-500'}`}>
                                         {String.fromCharCode(65 + i)}
                                     </div>
-                                    <span className="font-bold text-sm sm:text-base">{opt}</span>
+                                    <span className="font-bold text-xs sm:text-base leading-tight">{opt}</span>
                                 </motion.button>
                             ))}
                         </div>
                     )}
 
                     {challenge.type === 'B' && (
-                        <div className="bg-[#13131a] p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 space-y-4">
-                            <div className="flex items-center gap-2 text-[#94a3b8] mb-2">
-                                <Info size={16} />
-                                <span className="text-[10px] font-bold uppercase tracking-widest">Escribe la respuesta</span>
+                        <div className="bg-[#13131a] p-5 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/5 space-y-4">
+                            <div className="flex items-center gap-2 text-[#94a3b8] mb-1">
+                                <Info size={14} />
+                                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest">Escribe la respuesta</span>
                             </div>
                             <input 
                                 type="text"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
-                                placeholder="P. ej. Pubkey o String..."
-                                className="w-full bg-[#0a0a0f] border-2 border-white/5 rounded-2xl p-4 sm:p-5 text-base sm:text-lg font-bold text-white focus:outline-none focus:border-[#f97316] focus:bg-[#f97316]/5 transition-all placeholder:text-slate-700"
+                                placeholder="Escribe aquí..."
+                                className="w-full bg-[#0a0a0f] border-2 border-white/5 rounded-xl sm:rounded-2xl p-4 sm:p-5 text-sm sm:text-lg font-bold text-white focus:outline-none focus:border-[#f97316] focus:bg-[#f97316]/5 transition-all placeholder:text-slate-700"
                             />
                         </div>
                     )}
 
                     {/* Hints & Help */}
-                    <div className="bg-gradient-to-br from-[#a855f7]/10 to-transparent p-5 sm:p-6 rounded-3xl border border-[#a855f7]/20 flex gap-4">
-                        <div className="p-2.5 sm:p-3 bg-[#a855f7]/20 rounded-2xl h-fit">
-                            <Lightbulb className="text-[#a855f7]" size={18} sm:size={20} />
+                    <div className="bg-gradient-to-br from-[#a855f7]/10 to-transparent p-4 sm:p-6 rounded-3xl border border-[#a855f7]/20 flex gap-4">
+                        <div className="p-2 sm:p-3 bg-[#a855f7]/20 rounded-xl sm:rounded-2xl h-fit">
+                            <Lightbulb className="text-[#a855f7]" size={16} sm:size={20} />
                         </div>
-                        <div className="space-y-1">
-                            <p className="text-[10px] font-black text-white uppercase tracking-widest">¿Necesitas ayuda?</p>
-                            <p className="text-[10px] sm:text-xs text-[#94a3b8] leading-relaxed">Compara Rust con el lenguaje que ya conoces.</p>
+                        <div className="space-y-0.5 sm:space-y-1">
+                            <p className="text-[9px] sm:text-[10px] font-black text-white uppercase tracking-widest">¿Necesitas ayuda?</p>
+                            <p className="text-[10px] sm:text-xs text-[#94a3b8] leading-relaxed">Compara {challenge.comparisonKey || 'Rust'} con {state.language.toUpperCase()}.</p>
                             <button 
                                 onClick={() => setIsComparisonOpen(true)}
-                                className="text-[10px] sm:text-xs font-bold text-[#a855f7] hover:underline flex items-center gap-1 mt-2"
+                                className="text-[9px] sm:text-xs font-bold text-[#a855f7] hover:underline flex items-center gap-1 mt-1 sm:mt-2"
                             >
-                                COMPARAR CON {state.language.toUpperCase()} <ArrowRight size={12} />
+                                VER COMPARACIÓN <ArrowRight size={10} />
                             </button>
                         </div>
                     </div>
@@ -201,10 +201,10 @@ export const ChallengeScreen = () => {
                     <button 
                       onClick={handleSubmit}
                       disabled={challenge.type === 'B' ? !inputValue : selectedOption === null}
-                      className="group relative w-full py-5 sm:py-6 bg-[#f97316] disabled:opacity-30 disabled:grayscale hover:bg-[#ea580c] text-white font-black rounded-[1.5rem] sm:rounded-3xl transition-all shadow-2xl shadow-orange-950/20 overflow-hidden"
+                      className="group relative w-full py-4 sm:py-6 bg-[#f97316] disabled:opacity-30 disabled:grayscale hover:bg-[#ea580c] text-white font-black rounded-2xl sm:rounded-3xl transition-all shadow-2xl shadow-orange-950/20 overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
-                        <span className="relative z-10 text-base sm:text-lg uppercase tracking-widest">COMPROBAR CÓDIGO</span>
+                        <span className="relative z-10 text-sm sm:text-lg uppercase tracking-widest">COMPROBAR</span>
                     </button>
                 </div>
             </motion.div>
@@ -212,7 +212,7 @@ export const ChallengeScreen = () => {
             {/* Feedback Overlay */}
             <AnimatePresence>
                 {isFeedbackOpen && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 perspective-1000">
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 perspective-1000">
                         <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -224,11 +224,11 @@ export const ChallengeScreen = () => {
                             initial={{ opacity: 0, scale: 0.9, y: 50, rotateX: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 50, rotateX: -20 }}
-                            className={`relative w-full max-w-lg bg-[#13131a] border-2 rounded-[2.5rem] sm:rounded-[3rem] p-5 sm:p-8 shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden
+                            className={`relative w-full max-w-lg bg-[#13131a] border-2 rounded-[2rem] sm:rounded-[3rem] p-5 sm:p-8 shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden
                                 ${feedbackType === 'success' ? 'border-green-500/30' : 'border-red-500/30'}`}
                         >
                             {/* Animated Background Decoration */}
-                            <div className={`absolute -top-20 -right-20 w-64 h-64 blur-[100px] opacity-20 rounded-full
+                            <div className={`absolute -top-20 -right-20 w-48 h-48 sm:w-64 sm:h-64 blur-[80px] sm:blur-[100px] opacity-20 rounded-full
                                 ${feedbackType === 'success' ? 'bg-green-500' : 'bg-red-500'}`} 
                             />
 
@@ -237,43 +237,43 @@ export const ChallengeScreen = () => {
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1, rotate: feedbackType === 'success' ? [0, 10, -10, 10, 0] : 0 }}
                                     transition={{ duration: 0.5, delay: 0.2 }}
-                                    className={`w-14 h-14 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-2xl sm:text-5xl shadow-2xl
+                                    className={`w-12 h-12 sm:w-20 sm:h-20 rounded-full flex items-center justify-center text-xl sm:text-4xl shadow-2xl
                                         ${feedbackType === 'success' ? 'bg-green-500/20' : 'bg-red-500/20'}`}
                                 >
                                     {feedbackType === 'success' ? '🦀' : '⚠️'}
                                 </motion.div>
 
-                                <div className="space-y-1 sm:space-y-2">
+                                <div className="space-y-1">
                                     <h3 className={`text-xl sm:text-4xl font-black ${feedbackType === 'success' ? 'text-green-500' : 'text-red-500'}`}>
                                         {feedbackType === 'success' ? '¡COMPILADO!' : '¡ERROR!'}
                                     </h3>
-                                    <p className="text-[10px] sm:text-slate-400 font-medium px-4">
+                                    <p className="text-[10px] sm:text-xs sm:text-slate-400 font-medium px-4">
                                         {feedbackType === 'success' 
                                             ? 'Tu código es seguro y eficiente.' 
                                             : 'Revisa tu lógica e inténtalo de nuevo.'}
                                     </p>
                                 </div>
 
-                                <div className="w-full bg-white/5 rounded-2xl sm:rounded-3xl p-3 sm:p-6 text-left border border-white/5 space-y-2 sm:space-y-4">
+                                <div className="w-full bg-white/5 rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-left border border-white/5 space-y-2 sm:space-y-4">
                                     {feedbackType === 'error' ? (
                                         <>
-                                            <div className="flex items-center gap-2 text-red-400">
+                                            <div className="flex items-center gap-2 text-red-500">
                                                 <AlertCircle size={14} />
-                                                <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest">Fallo</span>
+                                                <span className="text-[9px] font-black uppercase tracking-widest">Compiler output</span>
                                             </div>
-                                            <p className="text-[10px] sm:text-sm text-slate-200 leading-relaxed font-medium">{challenge.explanation}</p>
+                                            <p className="text-[11px] sm:text-sm text-slate-200 leading-relaxed font-medium">{challenge.explanation}</p>
                                         </>
                                     ) : (
                                         <div className="space-y-3 sm:space-y-6">
-                                            <p className="text-[10px] sm:text-sm text-slate-200 leading-relaxed font-medium text-center">{challenge.explanation}</p>
-                                            <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                                            <p className="text-[11px] sm:text-sm text-slate-200 leading-relaxed font-medium text-center">{challenge.explanation}</p>
+                                            <div className="grid grid-cols-2 gap-3 sm:gap-4">
                                                 <div className="bg-white/5 p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5 flex flex-col items-center">
                                                     <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-0.5 sm:mb-1">XP</span>
-                                                    <span className="text-base sm:text-2xl font-black text-green-500">+100</span>
+                                                    <span className="text-sm sm:text-2xl font-black text-green-500">+100</span>
                                                 </div>
                                                 <div className="bg-white/5 p-2 sm:p-4 rounded-xl sm:rounded-2xl border border-white/5 flex flex-col items-center">
                                                     <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-0.5 sm:mb-1">STREAK</span>
-                                                    <span className="text-base sm:text-2xl font-black text-[#f97316]">{attempts === 0 ? '+50' : '0'}</span>
+                                                    <span className="text-sm sm:text-2xl font-black text-[#f97316]">{attempts === 0 ? '+50' : '0'}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -284,7 +284,7 @@ export const ChallengeScreen = () => {
                                   whileHover={{ scale: 1.02 }}
                                   whileTap={{ scale: 0.98 }}
                                   onClick={feedbackType === 'success' ? handleNext : handleTryAgain}
-                                  className={`w-full py-3 sm:py-5 rounded-xl sm:rounded-[2rem] font-black text-white text-sm sm:text-lg shadow-2xl transition-all
+                                  className={`w-full py-4 sm:py-5 rounded-2xl sm:rounded-[2rem] font-black text-white text-xs sm:text-lg shadow-2xl transition-all
                                     ${feedbackType === 'success' ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'}`}
                                 >
                                     {feedbackType === 'success' ? 'CONTINUAR' : 'REINTENTAR'}
