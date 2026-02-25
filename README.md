@@ -1,5 +1,7 @@
 # 🦀 RustVenture: Explora · Aprende
 
+![RustVenture Preview](public/viewimg.png)
+
 ![RustVenture Logo](public/logo.svg)
 
 **RustVenture** es una plataforma educativa gamificada diseñada para transformar la empinada curva de aprendizaje de **Rust** y **Solana** en una aventura épica. Olvida la documentación densa; aquí aprendes conquistando desafíos, ganando XP y desbloqueando insignias de explorador.
@@ -36,11 +38,24 @@ Aprender Rust y desarrollo en Solana puede ser intimidante. RustVenture nace de 
 
 ## 🛠️ Stack Tecnológico
 
-- **Frontend:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
-- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
-- **Animaciones:** [Framer Motion](https://www.framer.com/motion/)
-- **Iconos:** [Lucide React](https://lucide.dev/)
-- **Audio:** Web Audio API & HTML5 Audio
+RustVenture utiliza un conjunto de herramientas modernas y eficientes para garantizar una experiencia de usuario rápida y fluida:
+
+### **Frontend & Core**
+- **[React 18](https://reactjs.org/):** Biblioteca principal para la construcción de la interfaz.
+- **[Vite](https://vitejs.dev/):** Herramienta de construcción (build tool) ultra rápida para el desarrollo.
+- **[Tailwind CSS](https://tailwindcss.com/):** Framework de utilidades CSS para un diseño moderno y responsive.
+- **[Framer Motion](https://www.framer.com/motion/):** Motor de animaciones para transiciones suaves y micro-interacciones premium.
+
+### **Efectos y Utilidades**
+- **[Lucide React](https://lucide.dev/):** Set de iconos vectoriales consistentes y elegantes.
+- **[Canvas Confetti](https://www.npmjs.com/package/canvas-confetti):** Efectos visuales de celebración al completar niveles.
+- **[Clsx](https://www.npmjs.com/package/clsx) & [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge):** Gestión avanzada y dinámica de clases de Tailwind.
+
+### **Sistemas Internos**
+- **Context API & Hooks:** Gestión de estado global y lógica de juego nativa (sin Redux).
+- **Web Audio API:** Sistema de gestión de audio para música ambiental y efectos de sonido.
+- **LocalStorage API:** Persistencia de progreso y sesión del usuario entre recargas.
+- **SVG Vector Graphics:** Logos e iconos optimizados para resoluciones de alta densidad.
 
 ---
 

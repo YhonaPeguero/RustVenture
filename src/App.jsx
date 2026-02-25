@@ -10,6 +10,7 @@ import { BADGES } from './data/gameData';
 import { getOrInitializeSession, isSessionValid } from './utils/session';
 import { audioManager } from './utils/audio';
 import { AudioController } from './components/AudioController';
+import { Footer } from './components/Footer';
 
 function App() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
@@ -138,6 +139,7 @@ function App() {
         </AnimatePresence>
 
         <AudioController />
+        <Footer />
       </div>
     </GameContext.Provider>
   );
