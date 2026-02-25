@@ -73,9 +73,9 @@ export const ResultScreen = () => {
                 transition={{ type: "spring", damping: 10 }}
                 className="relative mb-8"
             >
-                <div className="absolute inset-0 bg-yellow-500 blur-[60px] opacity-20" />
-                <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-[2rem] flex items-center justify-center shadow-2xl relative z-10">
-                    <Trophy size={48} className="text-white" />
+                <div className="absolute inset-0 bg-[#14F195] blur-[60px] opacity-20" />
+                <div className="w-24 h-24 bg-gradient-to-br from-[#14F195] to-[#10b981] rounded-[2rem] flex items-center justify-center shadow-2xl relative z-10">
+                    <Trophy size={48} className="text-black" />
                 </div>
             </motion.div>
 
@@ -101,8 +101,8 @@ export const ResultScreen = () => {
                             <span className="text-[9px] text-slate-400 font-black uppercase">Ya completado ✓</span>
                         </div>
                     ) : result?.bonus && (
-                        <div className="mt-2 inline-block px-3 py-1 bg-[#f97316]/10 rounded-full border border-[#f97316]/20">
-                            <span className="text-[9px] text-[#f97316] font-black uppercase">PERFECTO 🔥</span>
+                        <div className="mt-2 inline-block px-3 py-1 bg-[#14F195]/10 rounded-full border border-[#14F195]/20">
+                            <span className="text-[9px] text-[#14F195] font-black uppercase">PERFECTO 🔥</span>
                         </div>
                     )}
                 </motion.div>
@@ -118,7 +118,7 @@ export const ResultScreen = () => {
 
             {result?.newBadges.length > 0 && (
                 <motion.div variants={card} className="w-full mb-8 sm:mb-12">
-                    <p className="text-[9px] sm:text-[10px] font-black text-[#f97316] uppercase mb-4 sm:mb-6 tracking-[0.3em]">NUEVAS INSIGNIAS</p>
+                    <p className="text-[9px] sm:text-[10px] font-black text-[#14F195] uppercase mb-4 sm:mb-6 tracking-[0.3em]">NUEVAS INSIGNIAS</p>
                     <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
                         {result.newBadges.map((id, i) => {
                             const badge = BADGES.find(b => b.id === id);
@@ -130,8 +130,8 @@ export const ResultScreen = () => {
                                     transition={{ delay: 0.5 + (i * 0.1), type: "spring" }}
                                     className="relative group"
                                 >
-                                    <div className="absolute inset-0 bg-[#f97316]/20 blur-[20px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#1e1e2e] rounded-2xl sm:rounded-3xl flex items-center justify-center text-3xl sm:text-4xl shadow-2xl border border-white/5 group-hover:border-[#f97316]/50 transition-all relative z-10">
+                                    <div className="absolute inset-0 bg-[#14F195]/20 blur-[20px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#1e1e2e] rounded-2xl sm:rounded-3xl flex items-center justify-center text-3xl sm:text-4xl shadow-2xl border border-white/5 group-hover:border-[#14F195]/50 transition-all relative z-10">
                                         {badge.icon}
                                     </div>
                                     <p className="mt-2 text-[8px] sm:text-[10px] font-black text-white uppercase tracking-widest">{badge.name}</p>

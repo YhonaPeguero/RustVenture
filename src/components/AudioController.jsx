@@ -16,7 +16,7 @@ export const AudioController = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleMute}
-            className="fixed bottom-6 right-6 z-[100] w-12 h-12 bg-[#13131a]/80 backdrop-blur-xl border border-white/5 rounded-2xl flex items-center justify-center text-[#f97316] shadow-2xl transition-all hover:bg-[#1e1e2e]"
+            className="fixed bottom-6 right-6 z-[100] w-12 h-12 bg-[#13131a]/80 backdrop-blur-xl border border-white/5 rounded-2xl flex items-center justify-center text-[#14F195] shadow-2xl transition-all hover:bg-[#1e1e2e]"
             title={isMuted ? "Subir volumen" : "Silenciar"}
         >
             <AnimatePresence mode="wait">

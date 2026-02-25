@@ -36,7 +36,7 @@ function App() {
         const parsed = JSON.parse(saved);
         // Only load if it's the same session
         if (parsed.sessionId === session.id) {
-            dispatch({ type: 'LOAD_STATE', payload: { ...parsed, sessionId: session.id } });
+            dispatch({ type: 'LOAD_STATE', payload: parsed });
         } else {
             dispatch({ type: 'SESSION_RESET', payload: session.id });
         }
@@ -104,10 +104,10 @@ function App() {
 
   return (
     <GameContext.Provider value={{ state, dispatch }}>
-      <div className="min-h-screen bg-[#06060a] text-[#f1f5f9] font-sans selection:bg-[#f97316]/30 overflow-x-hidden">
+      <div className="min-h-screen bg-[#06060a] text-[#f1f5f9] font-sans selection:bg-[#14F195]/30 overflow-x-hidden">
         <main className="relative min-h-screen flex flex-col">
           {/* Background Accents */}
-          <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#f97316]/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#14F195]/5 blur-[150px] rounded-full pointer-events-none" />
           <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#a855f7]/5 blur-[150px] rounded-full pointer-events-none" />
           
           <div className="relative z-10 flex-grow pt-8 pb-20">
@@ -124,7 +124,7 @@ function App() {
               exit={{ opacity: 0, scale: 1.5 }}
               className="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none"
             >
-              <div className="bg-[#13131a]/80 backdrop-blur-xl border border-[#f97316]/30 p-12 rounded-full shadow-[0_0_100px_rgba(249,115,22,0.2)]">
+              <div className="bg-[#13131a]/80 backdrop-blur-xl border border-[#14F195]/30 p-12 rounded-full shadow-[0_0_100px_rgba(20,241,149,0.2)]">
                 <motion.span 
                   animate={{ rotate: [0, -10, 10, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}

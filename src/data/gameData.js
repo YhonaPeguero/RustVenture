@@ -93,7 +93,7 @@ export const LEVELS = [
   {
     id: 1,
     title: "Variables y Tipos",
-    accent: "#f97316",
+    accent: "#14F195",
     challenges: [
       {
         id: "v1",

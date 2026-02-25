@@ -32,6 +32,8 @@ export function gameReducer(state, action) {
       return { ...state, screen: 'map' };
     case 'GO_TO_BADGES':
       return { ...state, screen: 'badges' };
+    case 'GO_TO_WELCOME':
+      return { ...state, screen: 'welcome' };
     case 'COMPLETE_CHALLENGE': {
       const challengeId = action.payload.id;
       const alreadyCompleted = state.completedChallenges.includes(challengeId);
@@ -80,7 +82,11 @@ export function gameReducer(state, action) {
     case 'RESET_CELEBRATION':
       return { ...state, showCelebration: null };
     case 'LOAD_STATE':
-        return { ...action.payload, screen: state.screen, lastActivity: Date.now() }; // Keep screen if reloading mid-game
+        return { 
+          ...state, 
+          ...action.payload, 
+          lastActivity: Date.now() 
+        };
     default:
       return state;
   }
