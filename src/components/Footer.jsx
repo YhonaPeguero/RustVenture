@@ -25,7 +25,7 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="relative w-full py-8 mt-auto border-t border-white/5 bg-[#0a0a0f]/40 backdrop-blur-md">
+        <footer className="relative w-full py-8 mt-auto border-t border-white/5 bg-[#0a0a0f]/80 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="flex flex-col items-center sm:items-start gap-1">
                     <p className="text-[10px] font-black text-[#14F195] uppercase tracking-[0.3em]">

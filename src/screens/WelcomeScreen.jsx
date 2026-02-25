@@ -59,32 +59,11 @@ export const WelcomeScreen = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#06060a] via-transparent to-transparent z-20" />
             </motion.div>
 
-            {/* Adventure Glow Backdrop (Supercharged Solana Aura) */}
-            <div className="absolute inset-0 z-10 pointer-events-none">
-                <motion.div 
-                    animate={{ 
-                        scale: [1, 1.2, 1],
-                        opacity: [0.15, 0.25, 0.15],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#14F195]/20 blur-[140px] rounded-full" 
-                />
-                <motion.div 
-                    animate={{ 
-                        scale: [1.1, 0.9, 1.1],
-                        opacity: [0.1, 0.2, 0.1],
-                    }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#9945FF]/15 blur-[160px] rounded-full" 
-                />
-                <motion.div 
-                    animate={{ 
-                        x: [-20, 20, -20],
-                        opacity: [0.05, 0.1, 0.05],
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#14F195]/10 blur-[180px] rounded-full" 
-                />
+            {/* Adventure Glow Backdrop (Simplified for stability) */}
+            <div className="absolute inset-0 z-10 pointer-events-none transform-gpu">
+                <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#14F195]/10 blur-[120px] rounded-full" />
+                <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#9945FF]/10 blur-[140px] rounded-full" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#14F195]/05 blur-[160px] rounded-full" />
             </div>
 
             {/* Content Container */}
@@ -115,10 +94,10 @@ export const WelcomeScreen = () => {
                               whileHover={{ y: -4, scale: 1.02, backgroundColor: 'rgba(20,241,149,0.05)' }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => setSelected(l.id)}
-                              className={`relative p-4 sm:p-6 rounded-3xl border-2 transition-all duration-500 flex flex-col items-center gap-2 sm:gap-3 overflow-hidden backdrop-blur-md
+                              className={`relative p-4 sm:p-6 rounded-3xl border-2 transition-all duration-500 flex flex-col items-center gap-2 sm:gap-3 overflow-hidden
                                 ${selected === l.id 
-                                    ? 'border-[#14F195] bg-[#14F195]/10 shadow-[0_0_30px_rgba(20,241,149,0.15)]' 
-                                    : 'border-white/5 bg-white/[0.02] hover:border-white/20'}`}
+                                    ? 'border-[#14F195] bg-[#14F195]/15 shadow-[0_0_30px_rgba(20,241,149,0.1)]' 
+                                    : 'border-white/5 bg-white/[0.03] hover:border-white/20'}`}
                             >
                                 {selected === l.id && (
                                     <motion.div 
@@ -142,28 +121,17 @@ export const WelcomeScreen = () => {
                       onClick={() => dispatch({ type: 'START_GAME', payload: selected })}
                       className="group relative w-full py-5 sm:py-6 flex items-center justify-center overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#0a0a0f] border border-[#14F195]/30 transition-all duration-300"
                     >
-                        {/* High-Performance Glow Layer (Opacity-based pulse to avoid boxShadow flicker) */}
-                        <motion.div 
-                            animate={{ opacity: [0.3, 0.6, 0.3] }}
-                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="absolute inset-0 bg-[#14F195]/10 blur-[30px] rounded-full pointer-events-none"
-                        />
+                        {/* High-Performance Glow Layer (Fixed opacity for stability) */}
+                        <div className="absolute inset-0 bg-[#14F195]/10 blur-[30px] rounded-full pointer-events-none" />
                         {/* Animated Glassmorphic Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#14F195]/80 via-[#9945FF]/80 to-[#14F195]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         
-                        {/* Moving Gradient / Shimmer Mask (Solana Theme) */}
-                        <motion.div 
-                            initial={{ x: '-100%' }}
-                            animate={{ x: '100%' }}
-                            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#14F195]/10 to-transparent skew-x-12 pointer-events-none"
-                        />
                         
                         {/* Static Glass Look (Default) */}
                         <div className="absolute inset-0 bg-gradient-to-br from-[#14F195] to-[#9945FF] opacity-40 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105" />
                         
-                        {/* Inner Glow Border / Glass Layer */}
-                        <div className="absolute inset-[1px] rounded-[1.95rem] sm:rounded-[2.45rem] bg-[#0a0a0f]/60 z-[5] overflow-hidden backdrop-blur-xl group-hover:bg-[#0a0a0f]/20 transition-all duration-500">
+                         {/* Inner Glow Border / Glass Layer (Removed backdrop-blur to avoid nesting flicker) */}
+                        <div className="absolute inset-[1px] rounded-[1.95rem] sm:rounded-[2.45rem] bg-[#0a0a0f]/80 z-[5] overflow-hidden group-hover:bg-[#0a0a0f]/40 transition-all duration-500">
                              <div className="absolute inset-0 bg-gradient-to-br from-[#14F195]/10 to-[#9945FF]/10 opacity-50 group-hover:opacity-100 transition-opacity" />
                         </div>
 
@@ -198,19 +166,17 @@ export const WelcomeScreen = () => {
                 {state.completedChallenges.length > 0 && (
                     <motion.p 
                         variants={item}
-                        className="mt-6 sm:mt-8 text-[9px] sm:text-xs text-[#14F195]/60 font-black uppercase tracking-widest flex items-center gap-2 bg-[#14F195]/5 px-5 py-2 rounded-full border border-[#14F195]/10"
+                        className="mt-6 sm:mt-8 text-[9px] sm:text-xs text-[#14F195]/80 font-black uppercase tracking-widest flex items-center gap-2 bg-[#14f195]/10 px-6 py-2.5 rounded-full border border-[#14f195]/20 shadow-[0_0_20px_rgba(20,241,149,0.1)]"
                         animate={{ 
-                            opacity: [0.85, 1],
-                            y: [0, -3]
+                            y: [0, -4, 0]
                         }}
                         transition={{ 
                             repeat: Infinity, 
-                            repeatType: "mirror",
-                            duration: 3, 
+                            duration: 4, 
                             ease: "easeInOut"
                         }}
                     >
-                        <span className="w-1.5 h-1.5 bg-[#14F195]/30 rounded-full" />
+                        <span className="w-2 h-2 bg-[#14F195] rounded-full animate-pulse shadow-[0_0_8px_#14F195]" />
                         Progreso detectado: {state.xp} XP
                     </motion.p>
                 )}
