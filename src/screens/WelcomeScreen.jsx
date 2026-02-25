@@ -138,20 +138,16 @@ export const WelcomeScreen = () => {
                 </motion.div>
 
                 <motion.div variants={item} className="w-full">
-                    <motion.button
-                      animate={{ 
-                        boxShadow: [
-                            "0 15px 40px rgba(20,241,149,0.15)",
-                            "0 15px 50px rgba(153,69,255,0.2)",
-                            "0 15px 40px rgba(20,241,149,0.15)"
-                        ]
-                      }}
-                      transition={{ 
-                        boxShadow: { repeat: Infinity, duration: 3, ease: "easeInOut" }
-                      }}
+                    <button
                       onClick={() => dispatch({ type: 'START_GAME', payload: selected })}
-                      className="group relative w-full py-5 sm:py-6 flex items-center justify-center overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#0a0a0f] border border-[#14F195]/30 shadow-[0_20px_50px_rgba(20,241,149,0.15)] transition-all duration-300"
+                      className="group relative w-full py-5 sm:py-6 flex items-center justify-center overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#0a0a0f] border border-[#14F195]/30 transition-all duration-300"
                     >
+                        {/* High-Performance Glow Layer (Opacity-based pulse to avoid boxShadow flicker) */}
+                        <motion.div 
+                            animate={{ opacity: [0.3, 0.6, 0.3] }}
+                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                            className="absolute inset-0 bg-[#14F195]/10 blur-[30px] rounded-full pointer-events-none"
+                        />
                         {/* Animated Glassmorphic Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#14F195]/80 via-[#9945FF]/80 to-[#14F195]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         
@@ -197,20 +193,20 @@ export const WelcomeScreen = () => {
 
                         {/* Hover Bloom Effect (Saturated) */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-[#14F195] blur-3xl transition-opacity pointer-events-none" />
-                    </motion.button>
+                    </button>
                 </motion.div>
                 {state.completedChallenges.length > 0 && (
                     <motion.p 
                         variants={item}
-                        className="mt-6 sm:mt-8 text-[9px] sm:text-xs text-[#14F195]/60 font-black uppercase tracking-widest flex items-center gap-2 bg-[#14F195]/10 backdrop-blur-md px-5 py-2 rounded-full border border-[#14F195]/20"
+                        className="mt-6 sm:mt-8 text-[9px] sm:text-xs text-[#14F195]/60 font-black uppercase tracking-widest flex items-center gap-2 bg-[#14F195]/5 px-5 py-2 rounded-full border border-[#14F195]/10"
                         animate={{ 
-                            opacity: [0.6, 1],
-                            y: [0, -4]
+                            opacity: [0.85, 1],
+                            y: [0, -3]
                         }}
                         transition={{ 
                             repeat: Infinity, 
                             repeatType: "mirror",
-                            duration: 2.5, 
+                            duration: 3, 
                             ease: "easeInOut"
                         }}
                     >
